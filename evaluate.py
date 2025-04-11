@@ -3,7 +3,7 @@ from model import LogisticRegressionModel
 from preprocessing import load_and_preprocess_data
 from sklearn.metrics import classification_report
 
-X_train, X_test, y_train, y_test = load_and_preprocess_data("data/spam.csv")
+X_train, X_test, y_train, y_test = load_and_preprocess_data("data/emails.csv")
 X_test_tensor = torch.tensor(X_test, dtype=torch.float32)
 
 model = LogisticRegressionModel(input_dim=X_test.shape[1])
