@@ -113,27 +113,3 @@ This will:
 2. Make predictions on the test set
 3. Generate evaluation metrics
 4. Create visualization plots in the 'visualizations' directory
-
-## Requirements
-
-- Python 3.8+
-- PyTorch
-- NumPy
-- Pandas
-- Scikit-learn
-- NLTK
-- Matplotlib
-
-## Project Structure
-
-```text
-EmailClassifier/
-├── data/
-│   └── emails.csv          # Dataset
-├── visualizations/         # Generated evaluation plots
-├── model.py                # Neural network architecture
-├── preprocessing.py        # Data processing pipeline
-├── train.py                # Model training script
-├── evaluate.py             # Model evaluation script
-└── README.md               # Project documentation
-```
