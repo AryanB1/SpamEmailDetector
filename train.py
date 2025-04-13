@@ -8,7 +8,7 @@ from preprocessing import load_and_preprocess_data
 from sklearn.utils.class_weight import compute_class_weight
 
 # Get data
-X_train, X_test, y_train, y_test = load_and_preprocess_data("data/emails.csv", 1500)
+X_train, _, y_train, _ = load_and_preprocess_data("data/emails.csv", 1500)
 X_train_tensor = torch.tensor(X_train, dtype=torch.float32)
 y_train_tensor = torch.tensor(y_train, dtype=torch.float32).view(-1, 1)
 
@@ -77,7 +77,6 @@ for epoch in range(num_epochs):
     scheduler.step(avg_loss)
 
 model_path = "model.pth"
-# Only create directory if path contains a directory component
 dirname = os.path.dirname(model_path)
 if dirname:
     os.makedirs(dirname, exist_ok=True)
@@ -85,5 +84,5 @@ if dirname:
 model.load_state_dict(best_model_state or model.state_dict())
 torch.save({
     'model_state_dict': model.state_dict(),
-    'input_dim': input_dim  # Use the stored input dimension instead of accessing model.input_dim
+    'input_dim': input_dim
 }, model_path)
