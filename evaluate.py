@@ -5,10 +5,6 @@ from preprocessing import load_and_preprocess_data
 from sklearn.metrics import (
     classification_report,
     confusion_matrix,
-    roc_curve,
-    auc,
-    precision_recall_curve,
-    average_precision_score
 )
 import matplotlib.pyplot as plt
 
@@ -61,42 +57,6 @@ def evaluate_model(
     plt.savefig(confusion_matrix_path, dpi=300, bbox_inches='tight')
     plt.close()
 
-    # ROC Curve
-    plt.figure(figsize=(8, 6))
-    fpr, tpr, _ = roc_curve(y_test, pred_probs)
-    roc_auc = auc(fpr, tpr)
-    plt.plot(fpr, tpr, color='darkorange', lw=2, label=f'AUC = {roc_auc:.3f}')
-    plt.plot([0, 1], [0, 1], color='navy', lw=2, linestyle='--')
-    plt.xlim([0.0, 1.0])
-    plt.ylim([0.0, 1.05])
-    plt.xlabel('False Positive Rate', fontsize=12)
-    plt.ylabel('True Positive Rate', fontsize=12)
-    plt.title('ROC Curve', fontsize=14)
-    plt.legend(loc="lower right", fontsize=12)
-    roc_curve_path = os.path.join(vis_dir, "roc_curve.png")
-    plt.tight_layout()
-    plt.savefig(roc_curve_path, dpi=300, bbox_inches='tight')
-    plt.close()
-
-    # Precision-Recall Curve
-    plt.figure(figsize=(8, 6))
-    precision, recall, _ = precision_recall_curve(y_test, pred_probs)
-    avg_precision = average_precision_score(y_test, pred_probs)
-    plt.plot(
-        recall, precision, color='blue', lw=2,
-        label=f'Avg Precision = {avg_precision:.3f}'
-    )
-    plt.xlabel('Recall', fontsize=12)
-    plt.ylabel('Precision', fontsize=12)
-    plt.ylim([0.0, 1.05])
-    plt.xlim([0.0, 1.0])
-    plt.title('Precision-Recall Curve', fontsize=14)
-    plt.legend(loc="upper right", fontsize=12)
-    pr_curve_path = os.path.join(vis_dir, "precision_recall_curve.png")
-    plt.tight_layout()
-    plt.savefig(pr_curve_path, dpi=300, bbox_inches='tight')
-    plt.close()
-
     # Probability Distribution Histogram
     plt.figure(figsize=(8, 6))
     plt.hist(
@@ -138,8 +98,6 @@ def evaluate_model(
 
     metrics = {
         'confusion_matrix': cm,
-        'roc_auc': roc_auc,
-        'avg_precision': avg_precision,
         'classification_report': classification_report(
             y_test, predicted_labels, output_dict=True
         )
@@ -147,8 +105,6 @@ def evaluate_model(
 
     vis_paths = {
         'confusion_matrix': confusion_matrix_path,
-        'roc_curve': roc_curve_path,
-        'pr_curve': pr_curve_path,
         'prob_dist': prob_dist_path
     }
 
