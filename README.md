@@ -68,18 +68,6 @@ The confusion matrix shows:
 - False Negatives: Spam emails that were missed
 - True Positives: Correctly identified spam emails
 
-### ROC Curve
-
-![ROC Curve](visualizations/roc_curve.png)
-
-The Receiver Operating Characteristic (ROC) curve plots the True Positive Rate against the False Positive Rate at various threshold settings. The Area Under the Curve (AUC) measures the model's ability to distinguish between classes - a higher AUC indicates better performance.
-
-### Precision-Recall Curve
-
-![Precision-Recall Curve](visualizations/precision_recall_curve.png)
-
-The Precision-Recall curve shows the tradeoff between precision (positive predictive value) and recall (sensitivity) at different thresholds. This is particularly useful for imbalanced datasets where spam emails might be less common than legitimate ones.
-
 ### Probability Distribution
 
 ![Probability Distribution](visualizations/probability_distribution.png)
