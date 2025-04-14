@@ -8,6 +8,7 @@ from sklearn.model_selection import train_test_split
 nltk.download('stopwords', quiet=True)
 from nltk.corpus import stopwords
 
+
 def clean_text(text):
     if pd.isna(text) or not isinstance(text, str):
         return "", {}
@@ -30,10 +31,12 @@ def clean_text(text):
     cleaned_text = re.sub(r'\s+', ' ', cleaned_text).strip()
     
     stop_words = set(stopwords.words("english"))
-    tokens = [word for word in cleaned_text.split() if word not in stop_words and len(word) > 1]
+    tokens = [word for word in cleaned_text.split() 
+              if word not in stop_words and len(word) > 1]
     
     return " ".join(tokens), features
-    
+
+
 def load_and_preprocess_data(path, feature_count):
     df = pd.read_csv(path, encoding="ISO-8859-1")
     

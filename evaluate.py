@@ -45,15 +45,14 @@ def evaluate_model(
     plt.xticks([0, 1], labels)
     plt.yticks([0, 1], labels)
 
-    # Add text annotations
-    for i in range(2):
-        for j in range(2):
-            plt.text(
-                j, i, format(cm[i, j], 'd'),
-                ha="center", va="center",
-                color="white" if cm[i, j] > cm.max()/2 else "black",
-                fontsize=14
-            )
+    plt.text(0, 0, format(cm[0, 0], 'd'), ha="center", va="center",
+             color="white" if cm[0, 0] > cm.max()/2 else "black", fontsize=14)
+    plt.text(1, 0, format(cm[0, 1], 'd'), ha="center", va="center",
+             color="white" if cm[0, 1] > cm.max()/2 else "black", fontsize=14)
+    plt.text(0, 1, format(cm[1, 0], 'd'), ha="center", va="center",
+             color="white" if cm[1, 0] > cm.max()/2 else "black", fontsize=14)
+    plt.text(1, 1, format(cm[1, 1], 'd'), ha="center", va="center",
+             color="white" if cm[1, 1] > cm.max()/2 else "black", fontsize=14)
 
     plt.ylabel('True Label', fontsize=12)
     plt.xlabel('Predicted Label', fontsize=12)
@@ -101,17 +100,17 @@ def evaluate_model(
     # Probability Distribution Histogram
     plt.figure(figsize=(8, 6))
     plt.hist(
-        pred_probs[y_test == 0], 
-        bins=20, 
-        alpha=0.6, 
-        label='Non-spam', 
+        pred_probs[y_test == 0],
+        bins=20,
+        alpha=0.6,
+        label='Non-spam',
         color='green'
     )
     plt.hist(
-        pred_probs[y_test == 1], 
-        bins=20, 
-        alpha=0.6, 
-        label='Spam', 
+        pred_probs[y_test == 1],
+        bins=20,
+        alpha=0.6,
+        label='Spam',
         color='red'
     )
     plt.xlabel('Predicted Probability', fontsize=12)

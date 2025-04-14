@@ -12,11 +12,15 @@ X_train, _, y_train, _ = load_and_preprocess_data("data/emails.csv", 1500)
 X_train_tensor = torch.tensor(X_train, dtype=torch.float32)
 y_train_tensor = torch.tensor(y_train, dtype=torch.float32).view(-1, 1)
 
-class_weights = compute_class_weight(class_weight='balanced', classes=np.unique(y_train), y=y_train)
+class_weights = compute_class_weight(
+    class_weight='balanced', classes=np.unique(y_train), y=y_train
+)
 
 class_weights_tensor = torch.tensor(class_weights, dtype=torch.float32)
 
-sample_weights = torch.tensor([class_weights[int(label)] for label in y_train], dtype=torch.float32).view(-1, 1)
+sample_weights = torch.tensor(
+    [class_weights[int(label)] for label in y_train], dtype=torch.float32
+).view(-1, 1)
 
 model = LogisticRegressionModel(input_dim=X_train.shape[1])
 
