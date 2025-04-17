@@ -10,8 +10,8 @@ import matplotlib.pyplot as plt
 
 
 def evaluate_model(
-    model_path="model.pth",
-    data_path="data/emails.csv",
+    model_path="./app/model/model.pth",
+    data_path="./data/emails.csv",
     max_features=1500
 ):
     vis_dir = "visualizations"
