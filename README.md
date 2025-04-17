@@ -14,6 +14,7 @@ This project implements a neural network-based email classifier that can accurat
 - Multi-layer neural network using PyTorch
 - Balanced training to handle class imbalance
 - Comprehensive evaluation metrics and visualizations
+- REST API for real-time email classification
 
 ## Model Architecture
 
