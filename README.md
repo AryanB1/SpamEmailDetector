@@ -1,4 +1,4 @@
-# Email Spam Classifier
+# Spam Email Classifier
 
 A machine learning model built with PyTorch that classifies emails as spam or legitimate using natural language processing techniques.
 
