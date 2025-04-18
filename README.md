@@ -1,20 +1,13 @@
 # Spam Email Classifier
 
-A machine learning model built with PyTorch that classifies emails as spam or legitimate using natural language processing techniques.
+This project is a machine learning model that uses logistic regression to classify emails as spam or legitimate. The classifier has 98.6% accuracy, and a 97% F1 score.
 
-## Project Overview
-
-This project implements a neural network-based email classifier that can accurately detect spam emails with 98.6% accuracy, and a 97% F1 score. The model uses a combination of TF-IDF text features and engineered features to make predictions.
-
-### Key Features
+## Key Features
 
 - Text preprocessing with NLTK for cleaning and normalization
-- Feature engineering to extract meaningful patterns from emails
 - TF-IDF vectorization for text representation
 - Multi-layer neural network using PyTorch
-- Balanced training to handle class imbalance
-- Comprehensive evaluation metrics and visualizations
-- REST API for real-time email classification
+- REST API for email classification
 
 ## Model Architecture
 
@@ -27,7 +20,7 @@ The model uses a multi-layer neural network with:
 
 ## Evaluation Results
 
-The model's performance can be understood through the following visualizations:
+The model's performance can be seen through the following visualizations:
 
 ### Confusion Matrix
 
@@ -45,3 +38,13 @@ The confusion matrix shows:
 ![Probability Distribution](visualizations/probability_distribution.png)
 
 This histogram shows how the model distributes probability scores for spam and non-spam emails.
+
+## API
+
+To run the project's REST API use the following command:
+
+```bash
+python app/api.py
+```
+
+Emails that need to be classified can be routed in a POST request to the `/predict` endpoint with the email provided in the request body.
