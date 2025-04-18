@@ -3,8 +3,8 @@ import torch.nn as nn
 import torch.optim as optim
 import numpy as np
 import os
-from model import LogisticRegressionModel
-from preprocessing import load_and_preprocess_data
+from app.model import LogisticRegressionModel
+from app.preprocessing import load_and_preprocess_data
 from sklearn.utils.class_weight import compute_class_weight
 
 # Get data

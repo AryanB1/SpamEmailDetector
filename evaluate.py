@@ -1,7 +1,7 @@
 import torch
 import os
-from model import LogisticRegressionModel
-from preprocessing import load_and_preprocess_data
+from app.model import LogisticRegressionModel
+from app.preprocessing import load_and_preprocess_data
 from sklearn.metrics import (
     classification_report,
     confusion_matrix,
