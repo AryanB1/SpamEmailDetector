@@ -1,6 +1,6 @@
 # Spam Email Classifier
 
-This project is a machine learning model that uses logistic regression to classify emails as spam or legitimate. The classifier has 98.6% accuracy, and a 97% F1 score.
+The project uses a multi-layer neural network to classify emails as spam or legitimate. The classifier has 98.6% accuracy, and a 97% F1 score.
 
 ## Key Features
 
