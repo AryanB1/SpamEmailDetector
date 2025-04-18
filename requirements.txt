@@ -1,0 +1,8 @@
+Flask
+torch
+pandas
+numpy
+scikit-learn
+nltk
+matplotlib
+pytest
