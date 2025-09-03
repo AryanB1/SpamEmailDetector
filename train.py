@@ -27,7 +27,7 @@ model = LogisticRegressionModel(input_dim=X_train.shape[1])
 criterion = nn.BCELoss(reduction='none')
 optimizer = optim.Adam(model.parameters(), lr=0.001, weight_decay=1e-5)
 scheduler = optim.lr_scheduler.ReduceLROnPlateau(
-    optimizer, mode='min', factor=0.5, patience=5, verbose=True
+    optimizer, mode='min', factor=0.5, patience=5
 )
 
 # Training configuration

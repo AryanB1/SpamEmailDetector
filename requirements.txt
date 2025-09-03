@@ -6,3 +6,6 @@ scikit-learn
 nltk
 matplotlib
 pytest
+cupy-cuda12x
+cudf-cu12
+cuml-cu12
