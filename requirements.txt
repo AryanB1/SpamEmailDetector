@@ -9,3 +9,4 @@ pytest
 cupy-cuda12x
 cudf-cu12
 cuml-cu12
+onnxruntime

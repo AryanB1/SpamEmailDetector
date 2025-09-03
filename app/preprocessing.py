@@ -9,7 +9,6 @@ from sklearn.model_selection import train_test_split
 import cupy as cp
 import cudf
 from cuml.feature_extraction.text import TfidfVectorizer
-from cuml.model_selection import train_test_split as cu_train_test_split
 
 _FORCE_CPU_ENV = os.getenv("SPAM_FORCE_CPU", "").lower() in ("1", "true", "yes")
 
@@ -40,7 +39,7 @@ except Exception:
     _NLTK_STOPS = set()
 
 
-def _clean_text_cpu(text: str):
+def clean_text(text: str):
     if pd.isna(text) or not isinstance(text, str):
         return "", {
             'text_length': 0, 'contains_url': 0, 'contains_email': 0,
@@ -170,7 +169,7 @@ def load_and_preprocess_data(path, feature_count, as_gpu=False, test_size=0.2, r
     feature_dicts = []
 
     for text in df[text_col]:
-        cleaned_text, features = _clean_text_cpu(text)
+        cleaned_text, features = clean_text(text)
         cleaned_texts.append(cleaned_text)
         feature_dicts.append(features)
 
